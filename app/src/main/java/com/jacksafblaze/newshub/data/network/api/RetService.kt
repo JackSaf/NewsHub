@@ -7,5 +7,7 @@ import retrofit2.http.Query
 
 interface RetService {
     @GET("v2/everything")
-    suspend fun getSearchedArticles(@Query("apiKey") apiKey: String, @Query("q") query: String): Response<NewsResult>
+    suspend fun getSearchedArticles(@Query("apiKey") apiKey: String,
+                                    @Query("q") query: String,
+                                    @Query("page")page: Int): Response<NewsResult>
 }
