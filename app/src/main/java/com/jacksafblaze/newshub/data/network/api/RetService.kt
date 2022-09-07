@@ -1,9 +1,11 @@
 package com.jacksafblaze.newshub.data.network.api
 
+import com.jacksafblaze.newshub.data.network.model.NewsResult
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface RetService {
     @GET("v2/everything")
-    fun getSearchedArticles(@Query("apiKey") apiKey: String, @Query("q") query: String)
+    suspend fun getSearchedArticles(@Query("apiKey") apiKey: String, @Query("q") query: String): Response<NewsResult>
 }
