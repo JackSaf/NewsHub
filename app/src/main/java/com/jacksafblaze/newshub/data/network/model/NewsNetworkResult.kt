@@ -3,9 +3,9 @@ package com.jacksafblaze.newshub.data.network.model
 
 import com.google.gson.annotations.SerializedName
 
-data class NewsResult(
-    @SerializedName("articles")
-    val articles: List<Article>,
+data class NewsNetworkResult(
+    @SerializedName("articleNetworkEntities")
+    val articleNetworkEntities: List<ArticleNetworkEntity>,
     @SerializedName("status")
     val status: String,
     @SerializedName("totalResults")
