@@ -3,7 +3,7 @@ package com.jacksafblaze.newshub.data.network.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Article(
+data class ArticleNetworkEntity(
     @SerializedName("author")
     val author: String,
     @SerializedName("content")
@@ -12,8 +12,8 @@ data class Article(
     val description: String,
     @SerializedName("publishedAt")
     val publishedAt: String,
-    @SerializedName("source")
-    val source: Source,
+    @SerializedName("sourceNetworkEntity")
+    val sourceNetworkEntity: SourceNetworkEntity,
     @SerializedName("title")
     val title: String,
     @SerializedName("url")
