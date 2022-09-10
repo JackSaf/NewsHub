@@ -35,7 +35,7 @@ class NewsRepositoryImpl(
         newsDao.deleteArticles(*articleArray)
     }
 
-    override suspend fun viewSavedArticles(): Flow<List<Article>> {
+    override fun viewSavedArticles(): Flow<List<Article>> {
         return newsDao.getAllArticles().map { articleDatabaseMapper.entityListToDomainModelList(it) }
     }
 
