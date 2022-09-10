@@ -6,4 +6,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface NewsRepository {
     fun getSearchedNews(query: String): Flow<PagingData<Article>>
+    suspend fun saveArticle(article: Article)
+    suspend fun deleteArticles(vararg articles: Article)
+    suspend fun viewSavedArticles(): Flow<List<Article>>
 }
