@@ -11,7 +11,7 @@ data class ArticleDbDto(@PrimaryKey(autoGenerate = true) val id: Int,
                         val content: String?,
                         val description: String?,
                         @ColumnInfo(name = "published_at") val publishedAt: String?,
-                        @Embedded val source: SourceDbDto?,
+                        @Embedded val source: SourceDbDto,
                         val title: String?,
                         val url: String?,
                         @ColumnInfo(name = "url_to_image") val urlToImage: String?)
