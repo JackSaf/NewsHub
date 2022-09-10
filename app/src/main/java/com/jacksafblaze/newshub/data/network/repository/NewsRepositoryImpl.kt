@@ -32,11 +32,11 @@ class NewsRepositoryImpl(
 
     override suspend fun deleteArticles(vararg articles: Article) {
         val articleArray = articleDatabaseMapper.domainModelListToEntityList(articles.toList()).toTypedArray()
-        newsDao.deleteArticle(*articleArray)
+        newsDao.deleteArticles(*articleArray)
     }
 
     override suspend fun viewSavedArticles(): Flow<List<Article>> {
-        //TODO
+        return newsDao.getAllArticles().map { articleDatabaseMapper.entityListToDomainModelList(it) }
     }
 
     companion object{
