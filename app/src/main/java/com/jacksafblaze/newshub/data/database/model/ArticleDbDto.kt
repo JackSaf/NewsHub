@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.jacksafblaze.newshub.domain.model.Source
 
-@Entity
+@Entity(tableName = "articles")
 data class ArticleDbDto(@PrimaryKey(autoGenerate = true) val uid: Int,
                         val author: String?,
                         val content: String?,
