@@ -4,9 +4,9 @@ import com.jacksafblaze.newshub.domain.model.Article
 import com.jacksafblaze.newshub.domain.repository.NewsRepository
 import com.jacksafblaze.newshub.domain.usecase.SaveArticleUseCase
 
-class SaveArticleUseCaseImpl(val newsRepository: NewsRepository): SaveArticleUseCase {
+class SaveArticleUseCaseImpl(private val newsRepository: NewsRepository): SaveArticleUseCase {
     override suspend fun execute(article: Article) {
-        //TODO
+        newsRepository.saveArticle(article)
     }
 
 }
