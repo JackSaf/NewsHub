@@ -12,7 +12,7 @@ data class ArticleNetworkEntity(
     val description: String,
     @SerializedName("publishedAt")
     val publishedAt: String,
-    @SerializedName("sourceNetworkEntity")
+    @SerializedName("source")
     val sourceNetworkEntity: SourceNetworkEntity,
     @SerializedName("title")
     val title: String,

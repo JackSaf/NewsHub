@@ -16,6 +16,9 @@ android {
         buildConfigField("String", "BASE_URL", BASE_URL)
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    buildFeatures{
+        dataBinding true
+    }
 
     buildTypes {
         release {
