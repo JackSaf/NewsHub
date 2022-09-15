@@ -5,8 +5,8 @@ import com.jacksafblaze.newshub.domain.repository.NewsRepository
 import com.jacksafblaze.newshub.domain.usecase.SaveArticleUseCase
 
 class SaveArticleUseCaseImpl(val newsRepository: NewsRepository): SaveArticleUseCase {
-    override fun execute(article: Article) {
-        TODO("Not yet implemented")
+    override suspend fun execute(article: Article) {
+        //TODO
     }
 
 }
