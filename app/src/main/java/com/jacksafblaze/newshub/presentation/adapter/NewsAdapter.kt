@@ -19,6 +19,14 @@ class NewsAdapter: PagingDataAdapter<UiModel, ViewHolder>(uiModelComparator) {
         }
     }
 
+    override fun getItemViewType(position: Int): Int {
+        return when(getItem(position)){
+            is UiModel.NewsItem -> R.layout.news_view_item
+            is UiModel.SeparatorItem -> R.layout.separator_view_item
+            else -> throw UnsupportedOperationException("Unknown view")
+        }
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return if(viewType == R.layout.news_view_item){
             ArticleViewHolder.create(parent)
