@@ -1,52 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/row_item_margin_horizontal"
+    android:layout_marginVertical="@dimen/row_item_margin_vertical"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="horizontal"
+    android:padding="@dimen/article_layout_padding">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/article_image"
+        android:layout_width="@dimen/article_image_width"
+        android:layout_height="@dimen/article_image_height"
+        app:shapeAppearanceOverlay="@style/roundedCornersImageView" />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/row_item_margin_horizontal"
-        android:layout_marginVertical="@dimen/row_item_margin_vertical"
-        android:clickable="true"
-        android:focusable="true"
-        android:orientation="horizontal"
-        android:padding="@dimen/article_layout_padding">
+        android:orientation="vertical">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/article_image"
-            android:layout_width="@dimen/article_image_width"
-            android:layout_height="@dimen/article_image_height"
-            app:shapeAppearanceOverlay="@style/roundedCornersImageView" />
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/article_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginBottom="@dimen/article_title_bottom_margin"
+            android:textSize="@dimen/article_title_size"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/article_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/article_title_bottom_margin"
-                android:textSize="@dimen/article_title_size"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/article_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/article_description_bottom_margin"
+            android:maxLines="10"
+            android:textSize="@dimen/article_description_size" />
 
-            <TextView
-                android:id="@+id/article_description"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/article_description_bottom_margin"
-                android:maxLines="10"
-                android:textSize="@dimen/article_description_size" />
-
-            <TextView
-                android:id="@+id/time_ago"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="end"
-                android:textSize="@dimen/article_time_ago_size" />
+        <TextView
+            android:id="@+id/time_ago"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textSize="@dimen/article_time_ago_size" />
 
 
-        </LinearLayout>
     </LinearLayout>
-</layout>
+</LinearLayout>

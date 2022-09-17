@@ -3,10 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidDev/Projects/NewsHub/app/src/main/res/drawable/gradient.xml" value="0.1545" />
         <entry key="..\:/AndroidDev/Projects/NewsHub/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidDev/Projects/NewsHub/app/src/main/res/layout/news_item_layout.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidDev/Projects/NewsHub/app/src/main/res/layout/news_view_item.xml" value="0.25416666666666665" />
-        <entry key="..\:/AndroidDev/Projects/NewsHub/app/src/main/res/layout/separator_view_item.xml" value="0.536" />
+        <entry key="..\:/AndroidDev/Projects/NewsHub/app/src/main/res/layout/separator_view_item.xml" value="0.6" />
       </map>
     </option>
   </component>

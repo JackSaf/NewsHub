@@ -6,7 +6,7 @@ import com.jacksafblaze.newshub.domain.repository.NewsRepository
 import com.jacksafblaze.newshub.domain.usecase.ViewSearchedNewsUseCase
 import kotlinx.coroutines.flow.Flow
 
-class ViewSearchedNewsUseCaseImpl(val newsRepository: NewsRepository): ViewSearchedNewsUseCase {
+class ViewSearchedNewsUseCaseImpl(private val newsRepository: NewsRepository): ViewSearchedNewsUseCase {
     override fun execute(query: String): Flow<PagingData<Article>> {
         return newsRepository.getSearchedNews(query)
     }
