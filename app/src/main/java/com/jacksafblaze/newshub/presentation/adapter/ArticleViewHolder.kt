@@ -19,7 +19,7 @@ class ArticleViewHolder(private val view: View): ViewHolder(view) {
         title.text = article.title
         description.text = article.description
         Glide.with(view).load(article.urlToImage).into(articleImage)
-        timeAgo.text = article.publishedAt
+        timeAgo.text = TimeAgo.publishedAtToTimeAgo(article.publishedAt)
     }
     companion object{
         fun create(parent: ViewGroup): ArticleViewHolder{
