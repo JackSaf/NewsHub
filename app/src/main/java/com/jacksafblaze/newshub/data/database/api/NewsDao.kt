@@ -11,6 +11,8 @@ import kotlinx.coroutines.flow.Flow
 interface NewsDao {
     @Query("Select * from articles")
     fun getAllArticles(): Flow<List<ArticleDbDto>>
+    @Query("Select EXISTS(SELECT * FROM articles WHERE articles.url = :articleUrl)")
+    suspend fun isArticleSaved(articleUrl: String): Boolean
     @Insert
     suspend fun insertArticle(article: ArticleDbDto)
     @Delete
