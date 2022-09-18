@@ -4,7 +4,7 @@ import com.jacksafblaze.newshub.data.network.model.ArticleNetworkEntity
 import com.jacksafblaze.newshub.domain.model.Article
 import com.jacksafblaze.newshub.util.EntityMapper
 
-class ArticleNetworkEntityMapper(val sourceNetworkEntityMapper: SourceNetworkEntityMapper): EntityMapper<ArticleNetworkEntity, Article> {
+class ArticleNetworkEntityMapper(private val sourceNetworkEntityMapper: SourceNetworkEntityMapper): EntityMapper<ArticleNetworkEntity, Article> {
     override fun entityToDomainModel(entity: ArticleNetworkEntity): Article = Article(entity.author,
         entity.content,
         entity.description,
@@ -12,7 +12,8 @@ class ArticleNetworkEntityMapper(val sourceNetworkEntityMapper: SourceNetworkEnt
         sourceNetworkEntityMapper.entityToDomainModel(entity.sourceNetworkEntity),
         entity.title,
         entity.url,
-        entity.urlToImage
+        entity.urlToImage,
+        false
     )
 
     override fun domainModelToEntity(domainModel: Article): ArticleNetworkEntity = ArticleNetworkEntity(domainModel.author,

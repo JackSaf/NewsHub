@@ -13,12 +13,13 @@ class ArticleDatabaseMapper(private val sourceDatabaseMapper: SourceDatabaseMapp
         entity.publishedAt ?: "",
         sourceDatabaseMapper.entityToDomainModel(entity.source),
         entity.title ?: "",
-        entity.url ?: "",
-        entity.urlToImage ?: ""
+        entity.url,
+        entity.urlToImage ?: "",
+        true
     )
 
     override fun domainModelToEntity(domainModel: Article): ArticleDbDto = ArticleDbDto(
-        0, domainModel.author,
+        domainModel.author,
         domainModel.content,
         domainModel.description,
         domainModel.publishedAt,
