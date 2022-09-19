@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="50"
+    android:viewportHeight="50">
+    <group
+        android:name="diskette"
+        android:rotation="0"
+        android:scaleX="1"
+        android:scaleY="1"
+        android:pivotX="25"
+        android:pivotY="25">
+        <path
+            android:name="out"
+            android:pathData="M5.3,5 L35,5 L45,15 L45,44 C45,44 44.5,44.5 44,45 L6,45
+            C6,45 5.5,44.5 5,44 L5,6 C5,6 5.5,5.5 6.1,4.7"
+            android:strokeWidth="2"
+            android:strokeColor="@color/black"
+            />
+        <path
+            android:pathData="M15,45 L15,31 C15,31 15.5,30.5 16,30
+            L34,30 C34,30 34.5,30.5 35,31 L35,45"
+            android:strokeWidth="2"
+            android:strokeColor="@color/black" />
+        <path
+            android:pathData="M15,5 L15,14 C15,14 15.5,14.5 16,15 L34,15
+        C34,15 34.5,14.5 35,14 L35,5"
+            android:strokeWidth="2"
+            android:strokeColor="@color/black" />
+        <path
+            android:pathData="M15,42 L35,42 M15,38 L35,38 M15,34 L35,34"
+            android:strokeWidth="1"
+            android:strokeColor="@color/black" />
+        <path
+            android:pathData="M32,7 L32,12"
+            android:strokeWidth="2"
+            android:strokeColor="@color/black" />
+    </group>
+</vector>
