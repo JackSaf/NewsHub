@@ -37,7 +37,7 @@
 
         <path
             android:name="stripes"
-            android:pathData="M15,42 L35,42 M15,38 L35,38 M15,34 L35,34"
+            android:pathData="M17,42 L30,42 M17,38 L32,38 M17,34 L32,34"
             android:strokeWidth="1"
             android:strokeColor="#C8C8C8" />
         <path
