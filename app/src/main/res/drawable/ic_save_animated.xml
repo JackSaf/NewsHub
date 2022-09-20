@@ -20,4 +20,8 @@
     <target
         android:animation="@animator/change_stroke_color"
         android:name="stick"/>
+    <target
+        android:animation="@animator/change_fill_alpha"
+        android:name="outbound"
+        />
 </animated-vector>
