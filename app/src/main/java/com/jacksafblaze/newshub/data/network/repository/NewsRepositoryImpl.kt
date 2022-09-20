@@ -18,12 +18,22 @@ class NewsRepositoryImpl(
     private val retService: RetService,
     private val articleNetworkEntityMapper: ArticleNetworkEntityMapper,
     private val articleDatabaseMapper: ArticleDatabaseMapper,
-    private val newsDao: NewsDao ): NewsRepository {
+    private val newsDao: NewsDao
+) : NewsRepository {
     override fun getSearchedNews(query: String): Flow<PagingData<Article>> {
         return Pager(
             PagingConfig(pageSize = NETWORK_PAGE_SIZE, enablePlaceholders = false),
             pagingSourceFactory = { NewsPagingSource(retService, query) }
-        ).flow.map { pagingData -> pagingData.map{ articleNetworkEntityMapper.entityToDomainModel(it) } }
+        ).flow.map { pagingData ->
+            pagingData.map {
+                val article = articleNetworkEntityMapper.entityToDomainModel(it)
+                if (newsDao.isArticleSaved(article.url)) {
+                    article.copy(saved = true)
+                } else {
+                    article
+                }
+            }
+        }
     }
 
     override suspend fun saveArticle(article: Article) {
@@ -31,15 +41,17 @@ class NewsRepositoryImpl(
     }
 
     override suspend fun deleteArticles(vararg articles: Article) {
-        val articleArray = articleDatabaseMapper.domainModelListToEntityList(articles.toList()).toTypedArray()
+        val articleArray =
+            articleDatabaseMapper.domainModelListToEntityList(articles.toList()).toTypedArray()
         newsDao.deleteArticles(*articleArray)
     }
 
     override fun viewSavedArticles(): Flow<List<Article>> {
-        return newsDao.getAllArticles().map { articleDatabaseMapper.entityListToDomainModelList(it) }
+        return newsDao.getAllArticles()
+            .map { articleDatabaseMapper.entityListToDomainModelList(it) }
     }
 
-    companion object{
+    companion object {
         const val NETWORK_PAGE_SIZE = 30
     }
 }
