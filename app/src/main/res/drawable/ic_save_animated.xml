@@ -5,4 +5,19 @@
         android:animation="@animator/rotate_and_resize"
         android:name="diskette"
         />
+    <target
+        android:animation="@animator/change_stroke_color"
+        android:name="outbound"/>
+    <target
+        android:animation="@animator/change_stroke_color"
+        android:name="upperLine"/>
+    <target
+        android:animation="@animator/change_stroke_color"
+        android:name="bottomLine"/>
+    <target
+        android:animation="@animator/change_stroke_color"
+        android:name="stripes"/>
+    <target
+        android:animation="@animator/change_stroke_color"
+        android:name="stick"/>
 </animated-vector>

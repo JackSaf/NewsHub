@@ -12,7 +12,7 @@
         android:pivotX="25"
         android:pivotY="25">
         <path
-            android:name="out"
+            android:name="outbound"
             android:pathData="M5.3,5 L15,5 L15,14 C15,14 15.5,14.5 16,15 L34,15
             C34,15 34.5,14.5 35,14 L35,6.15 L45,15 L45,44 C45,44 44.5,44.5 44,45
             L34,45 L34,31 C34,31 33.5,30.5 33,30 L16,30 C16,30 15.5,30.5 15,31 L15,45
@@ -23,21 +23,25 @@
             android:fillAlpha="0"
             />
         <path
+            android:name="upperLine"
             android:pathData="M15,5 L34,5"
             android:strokeWidth="2"
             android:strokeColor="#C8C8C8"
             />
         <path
+            android:name="bottomLine"
             android:pathData="M15,45 L35,45"
             android:strokeWidth="2"
             android:strokeColor="#C8C8C8"
             />
 
         <path
+            android:name="stripes"
             android:pathData="M15,42 L35,42 M15,38 L35,38 M15,34 L35,34"
             android:strokeWidth="1"
             android:strokeColor="#C8C8C8" />
         <path
+            android:name="stick"
             android:pathData="M32,7 L32,12"
             android:strokeWidth="2"
             android:strokeColor="#C8C8C8" />
