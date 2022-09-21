@@ -18,32 +18,32 @@
             L34,45 L34,31 C34,31 33.5,30.5 33,30 L16,30 C16,30 15.5,30.5 15,31 L15,45
             L6,45 C6,45 5.5,44.5 5,44 L5,6 C5,6 5.5,5.5 6.1,4.7"
             android:strokeWidth="2"
-            android:strokeColor="#C8C8C8"
+            android:strokeColor="@color/black"
             android:fillColor="@color/black"
-            android:fillAlpha="0"
+            android:fillAlpha="1"
             />
         <path
             android:name="upperLine"
             android:pathData="M15,5 L34,5"
             android:strokeWidth="2"
-            android:strokeColor="#C8C8C8"
+            android:strokeColor="@color/black"
             />
         <path
             android:name="bottomLine"
             android:pathData="M15,45 L35,45"
             android:strokeWidth="2"
-            android:strokeColor="#C8C8C8"
+            android:strokeColor="@color/black"
             />
 
         <path
             android:name="stripes"
             android:pathData="M17,42 L30,42 M17,38 L32,38 M17,34 L32,34"
             android:strokeWidth="1"
-            android:strokeColor="#C8C8C8" />
+            android:strokeColor="@color/black" />
         <path
             android:name="stick"
             android:pathData="M32,7 L32,12"
             android:strokeWidth="2"
-            android:strokeColor="#C8C8C8" />
+            android:strokeColor="@color/black" />
     </group>
 </vector>
