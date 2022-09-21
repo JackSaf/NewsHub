@@ -1,10 +1,9 @@
-package com.jacksafblaze.newshub.presentation
+package com.jacksafblaze.newshub.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.map
-import com.jacksafblaze.newshub.domain.model.Article
 import com.jacksafblaze.newshub.domain.usecase.DeleteSavedArticleUseCase
 import com.jacksafblaze.newshub.domain.usecase.SaveArticleUseCase
 import com.jacksafblaze.newshub.domain.usecase.ViewSearchedNewsUseCase
@@ -14,7 +13,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
-class SearchNewsViewModel(
+class NewsSearchViewModel(
     private val deleteSavedArticleUseCase: DeleteSavedArticleUseCase,
     private val saveArticleUseCase: SaveArticleUseCase,
     private val viewSearchedNewsUseCase: ViewSearchedNewsUseCase): ViewModel() {
