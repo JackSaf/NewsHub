@@ -4,14 +4,14 @@ import com.jacksafblaze.newshub.data.database.model.ArticleDbDto
 import com.jacksafblaze.newshub.domain.model.Article
 import com.jacksafblaze.newshub.util.EntityMapper
 
-class ArticleDatabaseMapper(private val sourceDatabaseMapper: SourceDatabaseMapper) :
+object ArticleDatabaseMapper :
     EntityMapper<ArticleDbDto, Article> {
     override fun entityToDomainModel(entity: ArticleDbDto): Article = Article(
         entity.author ?: "",
         entity.content ?: "",
         entity.description ?: "",
         entity.publishedAt ?: "",
-        sourceDatabaseMapper.entityToDomainModel(entity.source),
+        SourceDatabaseMapper.entityToDomainModel(entity.source),
         entity.title ?: "",
         entity.url,
         entity.urlToImage ?: "",
@@ -23,13 +23,15 @@ class ArticleDatabaseMapper(private val sourceDatabaseMapper: SourceDatabaseMapp
         domainModel.content,
         domainModel.description,
         domainModel.publishedAt,
-        sourceDatabaseMapper.domainModelToEntity(domainModel.source),
+        SourceDatabaseMapper.domainModelToEntity(domainModel.source),
         domainModel.title,
         domainModel.url,
         domainModel.urlToImage
     )
 
-    override fun entityListToDomainModelList(entityList: List<ArticleDbDto>): List<Article> = entityList.map { entityToDomainModel(it) }
+    override fun entityListToDomainModelList(entityList: List<ArticleDbDto>): List<Article> =
+        entityList.map { entityToDomainModel(it) }
 
-    override fun domainModelListToEntityList(domainModelList: List<Article>): List<ArticleDbDto> = domainModelList.map { domainModelToEntity(it) }
+    override fun domainModelListToEntityList(domainModelList: List<Article>): List<ArticleDbDto> =
+        domainModelList.map { domainModelToEntity(it) }
 }

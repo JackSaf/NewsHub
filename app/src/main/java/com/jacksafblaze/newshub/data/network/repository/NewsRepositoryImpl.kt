@@ -16,8 +16,6 @@ import kotlinx.coroutines.flow.map
 
 class NewsRepositoryImpl(
     private val retService: RetService,
-    private val articleNetworkEntityMapper: ArticleNetworkEntityMapper,
-    private val articleDatabaseMapper: ArticleDatabaseMapper,
     private val newsDao: NewsDao
 ) : NewsRepository {
     override fun getSearchedNews(query: String): Flow<PagingData<Article>> {
@@ -26,7 +24,7 @@ class NewsRepositoryImpl(
             pagingSourceFactory = { NewsPagingSource(retService, query) }
         ).flow.map { pagingData ->
             pagingData.map {
-                val article = articleNetworkEntityMapper.entityToDomainModel(it)
+                val article = ArticleNetworkEntityMapper.entityToDomainModel(it)
                 if (newsDao.isArticleSaved(article.url)) {
                     article.copy(saved = true)
                 } else {
@@ -37,18 +35,18 @@ class NewsRepositoryImpl(
     }
 
     override suspend fun saveArticle(article: Article) {
-        newsDao.insertArticle(articleDatabaseMapper.domainModelToEntity(article))
+        newsDao.insertArticle(ArticleDatabaseMapper.domainModelToEntity(article))
     }
 
     override suspend fun deleteArticles(vararg articles: Article) {
         val articleArray =
-            articleDatabaseMapper.domainModelListToEntityList(articles.toList()).toTypedArray()
+            ArticleDatabaseMapper.domainModelListToEntityList(articles.toList()).toTypedArray()
         newsDao.deleteArticles(*articleArray)
     }
 
     override fun viewSavedArticles(): Flow<List<Article>> {
         return newsDao.getAllArticles()
-            .map { articleDatabaseMapper.entityListToDomainModelList(it) }
+            .map { ArticleDatabaseMapper.entityListToDomainModelList(it) }
     }
 
     companion object {
