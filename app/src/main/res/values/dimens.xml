@@ -17,5 +17,6 @@
     <dimen name="separator_layout_padding">10dp</dimen>
     <dimen name="save_icon_width">24dp</dimen>
     <dimen name="save_icon_height">24dp</dimen>
+    <dimen name="news_search_fragment_root_layout_padding">10dp</dimen>
 
 </resources>

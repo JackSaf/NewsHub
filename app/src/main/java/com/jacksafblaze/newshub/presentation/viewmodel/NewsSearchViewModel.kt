@@ -17,7 +17,7 @@ class NewsSearchViewModel(
     private val deleteSavedArticleUseCase: DeleteSavedArticleUseCase,
     private val saveArticleUseCase: SaveArticleUseCase,
     private val viewSearchedNewsUseCase: ViewSearchedNewsUseCase): ViewModel() {
-    private val query = MutableStateFlow("")
+    val query = MutableStateFlow("")
 
     fun searchForNews(query: String): Flow<PagingData<UiModel>> {
         return viewSearchedNewsUseCase.execute(query).map { pagingData -> pagingData.map { UiModel.NewsItem(it) } }
