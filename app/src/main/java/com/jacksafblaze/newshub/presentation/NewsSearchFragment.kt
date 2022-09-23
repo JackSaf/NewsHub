@@ -6,8 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.jacksafblaze.newshub.R
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class NewsSearchFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
