@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.jacksafblaze.newshub.R
 import com.jacksafblaze.newshub.databinding.FragmentNewsSearchBinding
 import com.jacksafblaze.newshub.presentation.adapter.NewsAdapter
-import com.jacksafblaze.newshub.presentation.viewmodel.NewsSearchViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
