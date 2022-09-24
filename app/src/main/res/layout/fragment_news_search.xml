@@ -13,7 +13,7 @@
     android:padding="@dimen/news_search_fragment_root_layout_padding"
     tools:context=".presentation.NewsSearchFragment">
 
-    <SearchView
+    <EditText
         android:id="@+id/query"
         android:text="@={viewModel.query}"
         android:layout_height="wrap_content"
