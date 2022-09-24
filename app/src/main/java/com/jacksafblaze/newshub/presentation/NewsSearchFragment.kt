@@ -7,11 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jacksafblaze.newshub.R
 import com.jacksafblaze.newshub.databinding.FragmentNewsSearchBinding
 import com.jacksafblaze.newshub.presentation.adapter.NewsAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class NewsSearchFragment : Fragment() {
@@ -30,6 +35,7 @@ class NewsSearchFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
         initRecyclerView()
+        viewSearchedNews()
         return binding.root
     }
     fun initRecyclerView(){
@@ -37,8 +43,15 @@ class NewsSearchFragment : Fragment() {
         binding.articleList.layoutManager = LinearLayoutManager(requireContext())
         binding.articleList.adapter = adapter
     }
+
     fun viewSearchedNews(){
-        viewModel.searchForNews("")
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED){
+                viewModel.query.collect{
+                    viewModel.searchForNews(it).collectLatest(adapter::submitData)
+                }
+            }
+        }
     }
 
 }
