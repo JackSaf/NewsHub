@@ -13,9 +13,10 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @HiltViewModel
-class NewsSearchViewModel(
+class NewsSearchViewModel @Inject constructor(
     private val deleteSavedArticleUseCase: DeleteSavedArticleUseCase,
     private val saveArticleUseCase: SaveArticleUseCase,
     private val viewSearchedNewsUseCase: ViewSearchedNewsUseCase): ViewModel() {
