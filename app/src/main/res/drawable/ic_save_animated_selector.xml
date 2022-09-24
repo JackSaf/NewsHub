@@ -6,7 +6,7 @@
         android:state_checked="true" />
     <item
         android:id="@+id/not_saved"
-        android:drawable="ic_ve@drawable/ic_vector_save" />
+        android:drawable="@drawable/ic_vector_save" />
     <transition
         android:drawable="@drawable/ic_save_animated"
         android:fromId="@id/not_saved"
