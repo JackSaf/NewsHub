@@ -37,7 +37,7 @@ class NewsRepositoryImpl(
 
     override fun getTopHeadlines(): Flow<PagingData<Article>> {
         return Pager(
-            PagingConfig(pageSize = NETWORK_PAGE_SIZE, enablePlaceholders = false),
+            PagingConfig(pageSize = NETWORK_PAGE_SIZE, enablePlaceholders = true),
             pagingSourceFactory = { TopHeadlinesPagingSource(retService) }
         ).flow.map { pagingData ->
             pagingData.map {
