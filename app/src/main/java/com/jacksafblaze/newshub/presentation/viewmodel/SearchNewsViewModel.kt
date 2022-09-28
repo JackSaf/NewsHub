@@ -7,11 +7,9 @@ import androidx.paging.map
 import com.jacksafblaze.newshub.domain.usecase.DeleteSavedArticleUseCase
 import com.jacksafblaze.newshub.domain.usecase.SaveArticleUseCase
 import com.jacksafblaze.newshub.domain.usecase.ViewSearchedNewsUseCase
+import com.jacksafblaze.newshub.presentation.model.SearchNewsUiState
 import com.jacksafblaze.newshub.presentation.model.UiModel
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -20,8 +18,8 @@ class SearchNewsViewModel @Inject constructor(
     private val saveArticleUseCase: SaveArticleUseCase,
     private val viewSearchedNewsUseCase: ViewSearchedNewsUseCase,
     private val viewTopHeadlinesUseCase: viewTopHeadlinesUseCase): ViewModel() {
-    val _query = MutableStateFlow("War")
-    var query = _query.asStateFlow()
+    private val _uiState = MutableStateFlow(SearchNewsUiState())
+    val uiState = _uiState.asStateFlow()
 
     fun searchForNews(query: String): Flow<PagingData<UiModel>> {
         return viewSearchedNewsUseCase.execute(query).map { pagingData -> pagingData.map { UiModel.NewsItem(it) } }
@@ -34,5 +32,15 @@ class SearchNewsViewModel @Inject constructor(
     }
     fun deleteSavedArticle(uiModel: UiModel.NewsItem) = viewModelScope.launch {
         deleteSavedArticleUseCase.execute(uiModel.article)
+    }
+    fun userMessageShown(){
+        _uiState.update {
+            it.copy(userMessage = null)
+        }
+    }
+    fun submitQuery(query: String){
+        _uiState.update {
+            it.copy(query = query)
+        }
     }
 }
