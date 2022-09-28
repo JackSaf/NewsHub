@@ -8,7 +8,8 @@ import com.jacksafblaze.newshub.data.database.api.NewsDao
 import com.jacksafblaze.newshub.data.database.dbmapper.ArticleDatabaseMapper
 import com.jacksafblaze.newshub.data.network.api.RetService
 import com.jacksafblaze.newshub.data.network.networkmapper.ArticleNetworkEntityMapper
-import com.jacksafblaze.newshub.data.network.paging.NewsPagingSource
+import com.jacksafblaze.newshub.data.network.paging.SearchedNewsPagingSource
+import com.jacksafblaze.newshub.data.network.paging.TopHeadlinesPagingSource
 import com.jacksafblaze.newshub.domain.model.Article
 import com.jacksafblaze.newshub.domain.repository.NewsRepository
 import kotlinx.coroutines.flow.Flow
@@ -23,7 +24,23 @@ class NewsRepositoryImpl(
     override fun getSearchedNews(query: String): Flow<PagingData<Article>> {
         return Pager(
             PagingConfig(pageSize = NETWORK_PAGE_SIZE, enablePlaceholders = false),
-            pagingSourceFactory = { NewsPagingSource(retService, query) }
+            pagingSourceFactory = { SearchedNewsPagingSource(retService, query) }
+        ).flow.map { pagingData ->
+            pagingData.map {
+                val article = ArticleNetworkEntityMapper.entityToDomainModel(it)
+                if (newsDao.isArticleSaved(article.url)) {
+                    article.copy(saved = true)
+                } else {
+                    article
+                }
+            }
+        }
+    }
+
+    override fun getTopHeadlines(): Flow<PagingData<Article>> {
+        return Pager(
+            PagingConfig(pageSize = NETWORK_PAGE_SIZE, enablePlaceholders = false),
+            pagingSourceFactory = { TopHeadlinesPagingSource(retService) }
         ).flow.map { pagingData ->
             pagingData.map {
                 val article = articleNetworkEntityMapper.entityToDomainModel(it)
