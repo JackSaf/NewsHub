@@ -6,7 +6,7 @@ import com.jacksafblaze.newshub.data.network.api.RetService
 import com.jacksafblaze.newshub.data.network.model.ArticleNetworkEntity
 import retrofit2.HttpException
 
-class NewsPagingSource(private val retService: RetService, private val query: String): PagingSource<Int, ArticleNetworkEntity>() {
+class SearchedNewsPagingSource(private val retService: RetService, private val query: String): PagingSource<Int, ArticleNetworkEntity>() {
     override fun getRefreshKey(state: PagingState<Int, ArticleNetworkEntity>): Int? {
         return state.anchorPosition?.let {
             val anchorPage = state.closestPageToPosition(it)
@@ -18,7 +18,7 @@ class NewsPagingSource(private val retService: RetService, private val query: St
         val pageNumber = params.key ?: 1
 
         return try{
-            val result = retService.getSearchedArticles("api_key", query, pageNumber, params.loadSize)
+            val result = retService.getSearchedArticles(query = query, page = pageNumber, pageSize = params.loadSize)
             val articles = result.body()?.articleNetworkEntities!!
             val nextKey = if(articles.isEmpty() || articles.size < params.loadSize){
                 null
