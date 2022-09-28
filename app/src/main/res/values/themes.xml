@@ -9,8 +9,14 @@
         <item name="colorSecondary">#212121</item>
         <item name="colorSecondaryVariant">#000000</item>
         <item name="colorOnSecondary">#484848</item>
+        <item name="android:textAppearance">@style/TextStyle</item>
     </style>
     <style name="roundedCornersImageView" parent="">
         <item name="cornerSize">20%</item>
     </style>
+    <style name="TextStyle" parent="@android:style/TextAppearance">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#131313</item>
+    </style>
+
 </resources>
