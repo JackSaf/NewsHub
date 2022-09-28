@@ -6,7 +6,7 @@ import com.jacksafblaze.newshub.util.EntityMapper
 
 object SourceNetworkEntityMapper : EntityMapper<SourceNetworkEntity, Source> {
     override fun entityToDomainModel(entity: SourceNetworkEntity): Source =
-        Source(entity.id, entity.name)
+        Source(entity.id ?: "", entity.name ?: "")
 
     override fun domainModelToEntity(domainModel: Source): SourceNetworkEntity =
         SourceNetworkEntity(domainModel.id, domainModel.name)

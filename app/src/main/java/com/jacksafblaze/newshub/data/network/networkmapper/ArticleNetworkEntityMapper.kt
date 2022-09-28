@@ -6,14 +6,14 @@ import com.jacksafblaze.newshub.util.EntityMapper
 
 object ArticleNetworkEntityMapper : EntityMapper<ArticleNetworkEntity, Article> {
     override fun entityToDomainModel(entity: ArticleNetworkEntity): Article = Article(
-        entity.author,
-        entity.content,
-        entity.description,
-        entity.publishedAt,
+        entity.author ?: "",
+        entity.content ?: "",
+        entity.description ?: "",
+        entity.publishedAt ?: "",
         SourceNetworkEntityMapper.entityToDomainModel(entity.sourceNetworkEntity),
         entity.title,
         entity.url,
-        entity.urlToImage,
+        entity.urlToImage ?: "",
         false
     )
 
