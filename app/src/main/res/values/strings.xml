@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">NewsHub</string>
     <string name="search">Search…</string>
+    <string name="search_menu_item_title">Search</string>
+    <string name="logo">Logo</string>
 </resources>
