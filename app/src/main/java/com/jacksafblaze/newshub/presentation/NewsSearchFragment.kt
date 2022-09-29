@@ -2,16 +2,17 @@ package com.jacksafblaze.newshub.presentation
 
 import android.os.Bundle
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.jacksafblaze.newshub.R
 import com.jacksafblaze.newshub.databinding.FragmentNewsSearchBinding
 import com.jacksafblaze.newshub.presentation.adapter.NewsAdapter
 import com.jacksafblaze.newshub.presentation.viewmodel.NewsSearchViewModel
@@ -40,9 +41,30 @@ class NewsSearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        prepareMenu()
         initRecyclerView()
         viewTopHeadlines()
-        setSearchView()
+    }
+
+    fun prepareMenu(){
+        val menuHost: MenuHost = requireActivity()
+        menuHost.addMenuProvider(object: MenuProvider{
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.search_fragment_toolbar_menu, menu)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                return when(menuItem.itemId){
+                    R.id.search_item ->{
+                        val searchView = menuItem.actionView as SearchView
+                        initSearchView(searchView)
+                        true
+                    }
+                    else -> false
+                }
+            }
+
+        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
     }
 
     fun initRecyclerView(){
@@ -51,8 +73,9 @@ class NewsSearchFragment : Fragment() {
         binding.articleList.adapter = adapter
     }
 
-    fun setSearchView(){
-        binding.query.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+    fun initSearchView(searchView: SearchView){
+        searchView.queryHint = getString(androidx.appcompat.R.string.abc_search_hint)
+        searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if(query.isNullOrEmpty()){
                     viewTopHeadlines()
