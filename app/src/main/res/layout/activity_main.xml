@@ -19,7 +19,13 @@
             app:layout_scrollFlags="scroll|enterAlways"
             app:titleTextAppearance="@style/TextAppearance.Material3.ActionBar.Title"
             app:subtitleTextAppearance="@style/TextAppearance.Material3.ActionBar.Subtitle"
-            />
+            app:logo="@drawable/ic_logo"
+            app:contentInsetStart="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStartWithNavigation="0dp"
+            app:navigationIcon="@drawable/ic_menu"
+            >
+        </com.google.android.material.appbar.MaterialToolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.fragment.app.FragmentContainerView
