@@ -12,6 +12,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.FragmentNavigatorExtras
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jacksafblaze.newshub.R
 import com.jacksafblaze.newshub.databinding.FragmentNewsSearchBinding
@@ -72,6 +73,8 @@ class NewsSearchFragment : Fragment() {
         adapter = NewsAdapter()
         adapter.onArticleSelected = {article, imageView ->
             val extras = FragmentNavigatorExtras(imageView to article.url)
+            val action = NewsSearchFragmentDirections.actionNewsSearchFragmentToArticleDetailsFragment(article)
+            findNavController().navigate(action, extras)
         }
         binding.articleList.layoutManager = LinearLayoutManager(requireContext())
         binding.articleList.adapter = adapter
