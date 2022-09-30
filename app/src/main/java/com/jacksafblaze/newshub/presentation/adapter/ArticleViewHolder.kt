@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
 import com.jacksafblaze.newshub.R
 import com.jacksafblaze.newshub.domain.model.Article
-import com.jacksafblaze.newshub.presentation.model.UiModel
 
 class ArticleViewHolder(private val view: View, private val onArticleSelected: (Article, ImageView) -> Unit): ViewHolder(view) {
     private val rootItemLayout: CardView = view.findViewById(R.id.item_root_cardview)
