@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/newsSearchFragment">
 
     <fragment
         android:id="@+id/newsSearchFragment"
         android:name="com.jacksafblaze.newshub.presentation.NewsSearchFragment"
-        android:label="NewsSearchFragment" />
+        android:label="NewsSearchFragment" >
+        <action
+            android:id="@+id/action_newsSearchFragment_to_articleDetailsFragment"
+            app:destination="@id/articleDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/articleDetailsFragment"
+        android:name="com.jacksafblaze.newshub.presentation.ArticleDetailsFragment"
+        android:label="fragment_article_details"
+        tools:layout="@layout/fragment_article_details" >
+        <argument
+            android:name="selected_article"
+            app:argType="com.jacksafblaze.newshub.domain.model.Article" />
+    </fragment>
 </navigation>
