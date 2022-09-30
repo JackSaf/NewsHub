@@ -6,10 +6,11 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.jacksafblaze.newshub.R
+import com.jacksafblaze.newshub.domain.model.Article
 import com.jacksafblaze.newshub.presentation.model.UiModel
 
 class NewsAdapter: PagingDataAdapter<UiModel, ViewHolder>(uiModelComparator) {
-    lateinit var onArticleSelected: (UiModel.NewsItem, imageView: ImageView) -> Unit
+    lateinit var onArticleSelected: (Article, ImageView) -> Unit
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val uiModel = getItem(position)
