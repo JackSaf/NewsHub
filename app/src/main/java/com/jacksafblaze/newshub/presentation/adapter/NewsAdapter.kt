@@ -1,13 +1,17 @@
 package com.jacksafblaze.newshub.presentation.adapter
 
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.jacksafblaze.newshub.R
+import com.jacksafblaze.newshub.domain.model.Article
 import com.jacksafblaze.newshub.presentation.model.UiModel
 
 class NewsAdapter: PagingDataAdapter<UiModel, ViewHolder>(uiModelComparator) {
+    lateinit var onArticleSelected: (Article, ImageView) -> Unit
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val uiModel = getItem(position)
         uiModel.let {
@@ -29,7 +33,7 @@ class NewsAdapter: PagingDataAdapter<UiModel, ViewHolder>(uiModelComparator) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return if(viewType == R.layout.news_view_item){
-            ArticleViewHolder.create(parent)
+            ArticleViewHolder.create(parent, onArticleSelected)
         }
         else{
             SeparatorViewHolder.create(parent)
