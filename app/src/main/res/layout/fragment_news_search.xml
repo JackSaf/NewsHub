@@ -7,13 +7,6 @@
     android:orientation="vertical"
     android:padding="@dimen/news_search_fragment_root_layout_padding"
     tools:context=".presentation.NewsSearchFragment">
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/query"
-        android:hint="@string/search"
-        android:inputType="text"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/article_list"
         android:layout_width="match_parent"

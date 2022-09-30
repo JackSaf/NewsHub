@@ -42,9 +42,9 @@ object TimeAgo {
             }
         } else if (difInHours > 0) {
             if (difInHours == 1) {
-                "$difInHours month ago"
+                "$difInHours hour ago"
             } else {
-                "$difInHours months ago"
+                "$difInHours hours ago"
             }
         } else if (difInMinutes > 0) {
             if (difInMinutes == 1) {
