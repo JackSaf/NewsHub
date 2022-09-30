@@ -74,7 +74,7 @@ class NewsSearchFragment : Fragment() {
     }
 
     fun initSearchView(searchView: SearchView){
-        searchView.queryHint = getString(androidx.appcompat.R.string.abc_search_hint)
+        searchView.queryHint = getString(R.string.search)
         searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if(query.isNullOrEmpty()){
