@@ -12,4 +12,4 @@ data class Article(
     val url: String,
     val urlToImage: String,
     var saved: Boolean
-)
+): java.io.Serializable
