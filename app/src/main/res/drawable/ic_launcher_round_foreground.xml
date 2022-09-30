@@ -1,0 +1,84 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+  <path
+      android:strokeColor="@color/black"
+      android:pathData="M54,27 A27 27 1 1 1 54 81"
+      android:strokeWidth="5"
+      android:fillColor="@color/black"
+    />
+  <path
+      android:strokeColor="@color/black"
+      android:pathData="M54,27 A27 27 0 0 0 54 81"
+      android:strokeWidth="5"
+      android:fillColor="@color/white"
+      />
+  <path
+    android:strokeColor="@color/black"
+    android:pathData="M37,66 L37,45"
+    android:strokeWidth="3"
+    />
+  <path
+      android:strokeColor="@color/black"
+      android:pathData="M36.9,45 L36.9,42.9"
+      android:strokeWidth="2.5"
+    />
+  <path
+      android:strokeColor="@color/black"
+      android:pathData="M36.8,43.72 L51.6,66"
+      android:strokeWidth="3"
+      android:trimPathEnd="0.97"
+      />
+  <path
+      android:strokeColor="@color/black"
+      android:strokeWidth="2.5"
+      android:pathData="M50.2,66.2 L50.2,64"
+      />
+  <path
+      android:strokeColor="@color/black"
+      android:strokeWidth="3"
+      android:pathData="M50,64 L50,43"
+    />
+  <path
+      android:strokeColor="@color/white"
+      android:pathData="M33,41 L51.3,69"
+      android:strokeWidth="1"
+      android:trimPathStart="0.03"
+      android:trimPathEnd="0.97"
+      />
+  <path
+      android:strokeColor="@color/white"
+      android:pathData="M37,40 L53,65"
+      android:strokeWidth="1"
+      android:trimPathStart="0.03"
+      android:trimPathEnd="0.97"
+      />
+  <path
+      android:strokeColor="@color/white"
+      android:pathData="M52,43 L52,66"
+      android:strokeWidth="1"
+      android:trimPathStart="0.03"
+      android:trimPathEnd="0.97"
+      />
+  <path
+      android:strokeColor="@color/white"
+      android:pathData="M59,43 L59,66"
+      android:strokeWidth="3"
+      />
+  <path
+      android:strokeColor="@color/white"
+      android:pathData="M59,54.5 L73,54.5"
+      android:strokeWidth="3"
+      />
+  <path
+      android:strokeColor="@color/white"
+      android:pathData="M72,43 L72,66"
+      android:strokeWidth="3"
+      />
+
+
+
+</vector>

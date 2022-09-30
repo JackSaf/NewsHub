@@ -18,8 +18,18 @@ class ArticleViewHolder(private val view: View, private val onArticleSelected: (
     private val timeAgo: TextView = view.findViewById(R.id.time_ago)
     fun bind(article: Article){
         title.text = article.title
-        description.text = article.description
-        Glide.with(view).load(article.urlToImage).into(articleImage)
+        if(article.description.isNotBlank()){
+            description.text = article.description
+        }
+        else{
+            description.visibility = View.GONE
+        }
+        if(article.urlToImage.isNotBlank()){
+            Glide.with(view).load(article.urlToImage).into(articleImage)
+        }
+        else{
+            articleImage.visibility = View.GONE
+        }
         timeAgo.text = TimeAgo.publishedAtToTimeAgo(article.publishedAt)
     }
     companion object{

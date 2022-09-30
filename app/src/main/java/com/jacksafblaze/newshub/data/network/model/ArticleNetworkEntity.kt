@@ -5,13 +5,13 @@ import com.google.gson.annotations.SerializedName
 
 data class ArticleNetworkEntity(
     @SerializedName("author")
-    val author: String,
+    val author: String?,
     @SerializedName("content")
-    val content: String,
+    val content: String?,
     @SerializedName("description")
-    val description: String,
+    val description: String?,
     @SerializedName("publishedAt")
-    val publishedAt: String,
+    val publishedAt: String?,
     @SerializedName("source")
     val sourceNetworkEntity: SourceNetworkEntity,
     @SerializedName("title")
@@ -19,5 +19,5 @@ data class ArticleNetworkEntity(
     @SerializedName("url")
     val url: String,
     @SerializedName("urlToImage")
-    val urlToImage: String
+    val urlToImage: String?
 )

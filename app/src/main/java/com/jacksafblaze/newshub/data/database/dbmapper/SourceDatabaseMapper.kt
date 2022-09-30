@@ -4,7 +4,7 @@ import com.jacksafblaze.newshub.data.database.model.SourceDbDto
 import com.jacksafblaze.newshub.domain.model.Source
 import com.jacksafblaze.newshub.util.EntityMapper
 
-class SourceDatabaseMapper: EntityMapper<SourceDbDto, Source> {
+object SourceDatabaseMapper : EntityMapper<SourceDbDto, Source> {
     override fun entityToDomainModel(entity: SourceDbDto): Source =
         Source(entity.id ?: "", entity.name ?: "")
 

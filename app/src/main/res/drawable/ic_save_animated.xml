@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/ic_vector_save">
+    <target
+        android:animation="@animator/rotate_and_resize"
+        android:name="diskette"
+        />
+    <target
+        android:animation="@animator/change_stroke_color"
+        android:name="outbound"/>
+    <target
+        android:animation="@animator/change_stroke_color"
+        android:name="upperLine"/>
+    <target
+        android:animation="@animator/change_stroke_color"
+        android:name="bottomLine"/>
+    <target
+        android:animation="@animator/change_stroke_color"
+        android:name="stripes"/>
+    <target
+        android:animation="@animator/change_stroke_color"
+        android:name="stick"/>
+    <target
+        android:animation="@animator/change_fill_alpha"
+        android:name="outbound"
+        />
+</animated-vector>

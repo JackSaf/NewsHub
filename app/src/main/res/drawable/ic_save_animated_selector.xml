@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/saved"
+        android:drawable="@drawable/ic_vector_save_filled"
+        android:state_checked="true" />
+    <item
+        android:id="@+id/not_saved"
+        android:drawable="@drawable/ic_vector_save"
+        android:state_checked="false"/>
+    <transition
+        android:drawable="@drawable/ic_save_animated"
+        android:fromId="@id/not_saved"
+        android:toId="@id/saved"
+        />
+    <transition
+        android:fromId="@id/saved"
+        android:toId="@id/not_saved"
+        android:drawable="@drawable/delete_ripple_effect"/>
+</animated-selector>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <objectAnimator
+        android:propertyName="strokeColor"
+        android:duration="200"
+        android:valueFrom="#C8C8C8"
+        android:valueTo="@color/black"/>
+
+</set>

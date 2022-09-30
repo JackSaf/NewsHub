@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="row_item_margin_vertical">12dp</dimen>
-    <dimen name="row_item_margin_horizontal">12dp</dimen>
-    <dimen name="article_title_size">20sp</dimen>
+    <dimen name="row_item_margin_vertical">8dp</dimen>
+    <dimen name="row_item_margin_horizontal">8dp</dimen>
+    <dimen name="article_title_size">16sp</dimen>
     <dimen name="article_title_bottom_margin">12dp</dimen>
     <dimen name="article_description_bottom_margin">16dp</dimen>
-    <dimen name="article_description_size">16sp</dimen>
+    <dimen name="article_description_size">14sp</dimen>
     <dimen name="article_icon_size">24dp</dimen>
     <dimen name="loading_progress_bar_size">36dp</dimen>
     <dimen name="placeholder_item_height">32dp</dimen>
@@ -15,5 +15,8 @@
     <dimen name="article_layout_padding">10dp</dimen>
     <dimen name="article_time_ago_size">12sp</dimen>
     <dimen name="separator_layout_padding">10dp</dimen>
+    <dimen name="save_icon_width">24dp</dimen>
+    <dimen name="save_icon_height">24dp</dimen>
+    <dimen name="news_search_fragment_root_layout_padding">10dp</dimen>
 
 </resources>
