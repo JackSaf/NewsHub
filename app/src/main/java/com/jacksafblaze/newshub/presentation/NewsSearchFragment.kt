@@ -12,7 +12,9 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.FragmentNavigatorExtras
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.transition.MaterialElevationScale
 import com.jacksafblaze.newshub.R
 import com.jacksafblaze.newshub.databinding.FragmentNewsSearchBinding
 import com.jacksafblaze.newshub.presentation.adapter.NewsAdapter
@@ -30,6 +32,12 @@ class NewsSearchFragment : Fragment() {
     private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        exitTransition = MaterialElevationScale(false).apply {
+            duration = resources.getInteger(com.google.android.material.R.integer.material_motion_duration_long_1).toLong()
+        }
+        reenterTransition = MaterialElevationScale(true).apply {
+            duration = resources.getInteger(com.google.android.material.R.integer.material_motion_duration_long_1).toLong()
+        }
     }
 
     override fun onCreateView(
@@ -71,7 +79,10 @@ class NewsSearchFragment : Fragment() {
     fun initRecyclerView(){
         adapter = NewsAdapter()
         adapter.onArticleSelected = {article, imageView ->
-            val extras = FragmentNavigatorExtras(imageView to article.url)
+            val transitionName = getString(R.string.article_transition_name)
+            val extras = FragmentNavigatorExtras(imageView to transitionName)
+            val action = NewsSearchFragmentDirections.actionNewsSearchFragmentToArticleDetailsFragment(article)
+            findNavController().navigate(action, extras)
         }
         binding.articleList.layoutManager = LinearLayoutManager(requireContext())
         binding.articleList.adapter = adapter
