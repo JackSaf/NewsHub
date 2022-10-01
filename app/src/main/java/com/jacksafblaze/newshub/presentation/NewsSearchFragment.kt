@@ -14,6 +14,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.transition.MaterialElevationScale
 import com.jacksafblaze.newshub.R
 import com.jacksafblaze.newshub.databinding.FragmentNewsSearchBinding
 import com.jacksafblaze.newshub.presentation.adapter.NewsAdapter
@@ -31,6 +32,12 @@ class NewsSearchFragment : Fragment() {
     private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        exitTransition = MaterialElevationScale(false).apply {
+            duration = resources.getInteger(com.google.android.material.R.integer.material_motion_duration_long_1).toLong()
+        }
+        reenterTransition = MaterialElevationScale(true).apply {
+            duration = resources.getInteger(com.google.android.material.R.integer.material_motion_duration_long_1).toLong()
+        }
     }
 
     override fun onCreateView(
