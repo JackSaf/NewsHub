@@ -26,6 +26,7 @@ class ArticleViewHolder(private val view: View, private val onArticleSelected: (
             description.visibility = View.GONE
         }
         if(article.urlToImage.isNotBlank()){
+            articleImage.transitionName = article.urlToImage
             Glide.with(view).load(article.urlToImage).into(articleImage)
             rootItemLayout.setOnClickListener{
                 onArticleSelected(article, articleImage)
