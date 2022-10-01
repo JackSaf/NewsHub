@@ -72,7 +72,8 @@ class NewsSearchFragment : Fragment() {
     fun initRecyclerView(){
         adapter = NewsAdapter()
         adapter.onArticleSelected = {article, imageView ->
-            val extras = FragmentNavigatorExtras(imageView to article.url)
+            val transitionName = getString(R.string.article_transition_name)
+            val extras = FragmentNavigatorExtras(imageView to transitionName)
             val action = NewsSearchFragmentDirections.actionNewsSearchFragmentToArticleDetailsFragment(article)
             findNavController().navigate(action, extras)
         }
