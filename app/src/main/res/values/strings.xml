@@ -3,4 +3,5 @@
     <string name="search">Search…</string>
     <string name="search_menu_item_title">Search</string>
     <string name="logo">Logo</string>
+    <string name="article_transition_name">articleDetailsTransition</string>
 </resources>
