@@ -16,6 +16,7 @@ class ArticleDetailsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sharedElementEnterTransition = MaterialContainerTransform().apply {
+            drawingViewId = R.id.nav_host_fragment_container
             duration = resources.getInteger(com.google.android.material.R.integer.material_motion_duration_long_1).toLong()
             scrimColor = Color.TRANSPARENT
         }
